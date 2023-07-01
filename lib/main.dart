@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 //we want shorter custom imports
+import 'screens/auth/login_screen.dart';
 import 'screens/home_screen.dart';
 
+late Size mq;
 void main() {
   runApp(const MyApp());
 }
@@ -23,8 +25,7 @@ class MyApp extends StatelessWidget {
             color: Colors.black, fontWeight: FontWeight.normal, fontSize: 19),
         backgroundColor: Colors.white,
       )),
-      home: HomeScreen(),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: LoginScreen(),
     );
   }
 }

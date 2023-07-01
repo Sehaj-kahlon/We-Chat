@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
-//strateful widget so that we can change it dynamically
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -14,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         //appbar
         appBar: AppBar(
-          leading: Icon(Icons.home),
+          leading: Icon(CupertinoIcons.home),
           title: const Text('We Chat'),
           actions: [
             //search user button
