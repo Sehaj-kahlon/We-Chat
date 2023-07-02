@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:wechat/api/api.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,6 +12,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  _signOut() async {
+    await APIs.auth.signOut();
+    await GoogleSignIn().signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +35,11 @@ class _HomeScreenState extends State<HomeScreen> {
         floatingActionButton: Padding(
           padding: const EdgeInsets.only(bottom: 10),
           child: FloatingActionButton(
-            onPressed: () {},
+            onPressed: () async {
+              await APIs.auth.signOut();
+              await GoogleSignIn().signOut();
+              ;
+            },
             child: Icon(Icons.add_comment_rounded),
           ),
         ));

@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:wechat/helper/dialogs.dart';
+import '../../api/api.dart';
 import '../../main.dart';
 import '../home_screen.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -14,8 +15,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  @override
   bool _isAnime = false;
+  @override
   //funtion to change the value of _isAnime
   void initState() {
     super.initState();
@@ -56,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
 
       // Once signed in, return the UserCredential
-      return await FirebaseAuth.instance.signInWithCredential(credential);
+      return await APIs.auth.signInWithCredential(credential);
     } catch (e) {
       // log('\n_signInWithGoogle: $e' as num);
       Dialogs.showSnackbar(
@@ -67,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   //sign out function
   // _signOut() async {
-  //   await FirebaseAuth.instance.signOut();
+  //   await APIs.auth.signOut();
   //   await GoogleSignIn().signOut();
   // }
   @override
