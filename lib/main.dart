@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//we want shorter custom imports
 import 'screens/auth/login_screen.dart';
 import 'screens/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
