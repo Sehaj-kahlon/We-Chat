@@ -66,6 +66,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '999815156607',
     projectId: 'we-chat-52f23',
     storageBucket: 'we-chat-52f23.appspot.com',
+    androidClientId: '999815156607-lvr9733o1bbq0pnci3hbs3s2ki9bm574.apps.googleusercontent.com',
     iosClientId: '999815156607-r3fa3oklqsiddkls9jee2edo2uve43h0.apps.googleusercontent.com',
     iosBundleId: 'com.example.wechat',
   );
@@ -76,6 +77,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '999815156607',
     projectId: 'we-chat-52f23',
     storageBucket: 'we-chat-52f23.appspot.com',
+    androidClientId: '999815156607-lvr9733o1bbq0pnci3hbs3s2ki9bm574.apps.googleusercontent.com',
     iosClientId: '999815156607-r3fa3oklqsiddkls9jee2edo2uve43h0.apps.googleusercontent.com',
     iosBundleId: 'com.example.wechat',
   );

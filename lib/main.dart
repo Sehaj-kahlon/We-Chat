@@ -10,7 +10,7 @@ import 'package:flutter/services.dart';
 late Size mq;
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  //to open the application in full screen mode this is availabe under services.dart
+  //full screen mode
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   //fixed orientation potratit only using .then so that this func will set orientatoin first then we move ahead
   SystemChrome.setPreferredOrientations(
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
             color: Colors.black, fontWeight: FontWeight.normal, fontSize: 19),
         backgroundColor: Colors.white,
       )),
-      home: const SplashScreen(),
+      home: const LoginScreen(),
     );
   }
 }
