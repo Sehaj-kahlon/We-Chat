@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wechat/screens/home_screen.dart';
 import '../../main.dart';
+import '../home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     //initializing media query for getting device sreen size
-    mq = MediaQuery.of(context).size;
+    // mq = MediaQuery.of(context).size;
     return Scaffold(
       //appbar
       appBar: AppBar(
