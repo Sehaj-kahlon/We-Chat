@@ -4,6 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:wechat/api/api.dart';
 
+import '../main.dart';
+import '../widgets/chat_user_card.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -20,28 +23,36 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        //appbar
-        appBar: AppBar(
-          leading: Icon(CupertinoIcons.home),
-          title: const Text('We Chat'),
-          actions: [
-            //search user button
-            IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-            //more features button
-            IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
-          ],
+      //appbar
+      appBar: AppBar(
+        leading: Icon(CupertinoIcons.home),
+        title: const Text('We Chat'),
+        actions: [
+          //search user button
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          //more features button
+          IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
+        ],
+      ),
+      //floating button to add new user
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: FloatingActionButton(
+          onPressed: () async {
+            await APIs.auth.signOut();
+            await GoogleSignIn().signOut();
+            ;
+          },
+          child: Icon(Icons.add_comment_rounded),
         ),
-        //floating button to add new user
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.only(bottom: 10),
-          child: FloatingActionButton(
-            onPressed: () async {
-              await APIs.auth.signOut();
-              await GoogleSignIn().signOut();
-              ;
-            },
-            child: Icon(Icons.add_comment_rounded),
-          ),
-        ));
+      ),
+      body: ListView.builder(
+          itemCount: 1,
+          padding: EdgeInsets.only(top: mq.height * 0.01),
+          physics: BouncingScrollPhysics(),
+          itemBuilder: (context, index) {
+            return const ChatUserCard();
+          }),
+    );
   }
 }
