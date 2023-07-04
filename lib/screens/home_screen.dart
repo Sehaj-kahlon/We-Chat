@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -46,13 +48,26 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Icon(Icons.add_comment_rounded),
         ),
       ),
-      body: ListView.builder(
-          itemCount: 1,
-          padding: EdgeInsets.only(top: mq.height * 0.01),
-          physics: BouncingScrollPhysics(),
-          itemBuilder: (context, index) {
-            return const ChatUserCard();
-          }),
+      body: StreamBuilder(
+        stream: APIs.firestore.collection('users').snapshots(),
+        builder: (context, snapshot) {
+          final list = [];
+          if (snapshot.hasData) {
+            final data = snapshot.data?.docs;
+            for (var i in data!) {
+              log('Data :${i.data()}');
+              list.add(i.data()['name']);
+            }
+          }
+          return ListView.builder(
+              itemCount: list.length,
+              padding: EdgeInsets.only(top: mq.height * 0.01),
+              physics: BouncingScrollPhysics(),
+              itemBuilder: (context, index) {
+                return const ChatUserCard();
+              });
+        },
+      ),
     );
   }
 }
