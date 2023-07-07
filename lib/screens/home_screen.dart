@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -55,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
           if (snapshot.hasData) {
             final data = snapshot.data?.docs;
             for (var i in data!) {
-              log('Data :${i.data()}');
+              log('Data :${jsonEncode(i.data())}');
               list.add(i.data()['name']);
             }
           }
